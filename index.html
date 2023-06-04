@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image" href="firefox.ico" />
+    <title>Tokens</title>
+    <script>
+      // Function to add hyphens after every 4 digits in the card number
+      function formatCardNumber(input) {
+        let value = input.value.replace(/\D/g, "");
+        let formattedValue = "";
+        for (let i = 0; i < value.length; i++) {
+          if (i > 0 && i % 4 === 0) {
+            formattedValue += "-";
+          }
+          formattedValue += value[i];
+        }
+        input.value = formattedValue;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enter your details:</h1>
+      <form>
+        <div class="form-group">
+          <label for="name"
+            >Name <span class="mandatory">*</span> (Max 20 characters):</label
+          >
+          <input
+            type="text"
+            id="name"
+            maxlength="20"
+            pattern="[A-Za-z]+"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="card-number"
+            >Card Number <span class="mandatory">*</span>:</label
+          >
+          <input
+            type="text"
+            id="card-number"
+            maxlength="19"
+            placeholder="XXXX-XXXX-XXXX-XXXX"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV <span class="mandatory">*</span>:</label>
+          <input type="text" id="cvv" maxlength="3" required />
+        </div>
+        <div class="form-group">
+          <label for="exp"
+            >Expiry Date :<span class="mandatory">*</span>:</label
+          >
+          <input type="date" id="exp" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Optional Message:</label>
+          <input
+            type="text"
+            id="message"
+            placeholder="Enter your message here"
+          />
+        </div>
+        <input type="submit" class="submit-btn buttonOnSubmit" value="Submit" />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
